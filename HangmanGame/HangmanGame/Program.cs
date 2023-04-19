@@ -120,7 +120,58 @@ namespace HangmanGame
             List<char> currentLettersGuessed = new List<char>();
 
             int currentLettersRight = 0;
-             
+            
+            while(amountOfTimesWrong != 6 && currentLettersRight != lengthOfWordToGuess)
+            {
+                Console.Write("\n Letters guessed so far: ");
+                foreach(char letter in currentLettersGuessed)
+                {
+                    Console.Write(letter + " ");
+                }
+
+                //Prompt user for input
+                Console.Write("\nGuess a letter: ");
+                char letterGuessed = Console.ReadLine()[0]; 
+
+                // Check if letter has already been guessed
+                if(currentLettersGuessed.Contains(letterGuessed))
+                {
+                    Console.Write("\r\nYou have already guessed this letter.");
+                    printHangman(amountOfTimeWrong);
+                    currentLettersRight = printWord(currentLettersGuessed, randomWord);
+                    printLines(randomWord);
+                }
+                else
+                {
+                    // Check if letter is in the word 
+                    bool right = false;
+                    for (int i = 0; i < randomWord.Length; i++)
+                    {
+                        if(letterGuessed == randomWord[i])
+                        {
+                            right = true;
+                        }
+                    }
+
+                    if (right)
+                    {
+                        printHangman(amountOfTimeWrong);
+                        currentLettersGuessed.Add(letterGuessed);
+                        currentLettersRight = printWord(currentLettersGuessed, randomWord);
+                        Console.Write("\r\n");
+                        printLines(randomWord);
+                    }
+                    else
+                    {
+                        amountOfTimeWrong++;
+                        currentLettersGuessed.Add(letterGuessed);
+                        printHangman(amountOfTimeWrong);
+                        currentLettersRight = printWord(currentLettersGuessed, randomWord);
+                        Console.Write("\r\n");
+                        printLines(randomWord); 
+                    }
+                }
+            }
         }
     }
 }
