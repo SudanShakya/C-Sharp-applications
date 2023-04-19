@@ -101,7 +101,26 @@ namespace HangmanGame
         }
         static void Main(string[] args)
         {
-           
+            Console.WriteLine("Welcome To Hangman ");
+            Console.WriteLine("-----------------------------------");
+
+            Random random = new Random();
+            List<string> wordDictionary = new List<string> { "sunflower", "fizzy", "wave", "funny", "lucky", "subway", "joyful", "wishky", "juicy", "stretch", "cobweb", "zodiac", "transplant", "transparent", "cakes", "attract", "beautiful", "abstract", "forecast"};
+            int index = random.Next(wordDictionary.Count);  
+            String randomWord = wordDictionary[index];
+
+            foreach (char x in randomWord)
+            {
+                Console.Write("_ ");
+            }
+
+            int lengthOfWordToGuess = randomWord.Length;
+            int amountOfTimeWrong = 0;
+
+            List<char> currentLettersGuessed = new List<char>();
+
+            int currentLettersRight = 0;
+             
         }
     }
 }
