@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/HangmanGame/HangmanGame/obj/Release/net6.0/HangmanGame.GlobalUsings.g.cs
+/HangmanGame/.vs
+/HangmanGame/HangmanGame/obj/Release/net6.0/HangmanGame.GeneratedMSBuildEditorConfig.editorconfig
+/HangmanGame/HangmanGame/obj/Release/net6.0/HangmanGame.csproj.AssemblyReference.cache
+/HangmanGame/HangmanGame/obj/Release/net6.0/HangmanGame.assets.cache
+/HangmanGame/HangmanGame/obj/Release/net6.0/HangmanGame.AssemblyInfoInputs.cache
+/HangmanGame/HangmanGame/obj/Release/net6.0/HangmanGame.AssemblyInfo.cs
+/HangmanGame/HangmanGame/obj/Release/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
