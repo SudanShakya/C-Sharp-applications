@@ -38,8 +38,8 @@ namespace HangmanGame
             else if (wrong == 3)
             {
                 Console.WriteLine("\n+---+");
-                Console.WriteLine(" O   |");
-                Console.WriteLine("/|   |");
+                Console.WriteLine(" O  |");
+                Console.WriteLine("/|  |");
                 Console.WriteLine("    |");
                 Console.WriteLine("   ===");
             }
@@ -47,25 +47,25 @@ namespace HangmanGame
             {
                 Console.WriteLine("\n+---+");
                 Console.WriteLine(" O   |");
-                Console.WriteLine("/|\\ |");
-                Console.WriteLine("    |");
-                Console.WriteLine("   ===");
+                Console.WriteLine("/|\\  |");
+                Console.WriteLine("     |");
+                Console.WriteLine("    ===");
             }
             else if (wrong == 5)
             {
                 Console.WriteLine("\n+---+");
                 Console.WriteLine(" O   |");
-                Console.WriteLine("/|\\ |");
-                Console.WriteLine("/   |");
-                Console.WriteLine("   ===");
+                Console.WriteLine("/|\\  |");
+                Console.WriteLine("/    |");
+                Console.WriteLine("    ===");
             }
             else if (wrong == 6)
             {
                 Console.WriteLine("\n+---+");
-                Console.WriteLine(" O    |");
+                Console.WriteLine(" O   |");
                 Console.WriteLine("/|\\   |");
-                Console.WriteLine("/ \\   |");
-                Console.WriteLine("   ===");
+                Console.WriteLine("/ \\  |");
+                Console.WriteLine("     ===");
             }
         }
 
@@ -96,7 +96,7 @@ namespace HangmanGame
             foreach(char c in randomWord)
             {
                 Console.OutputEncoding = System.Text.Encoding.Unicode;
-                Console.WriteLine("\u0305");
+                Console.Write("\u0305 ");
             }
         }
         static void Main(string[] args)
@@ -121,7 +121,7 @@ namespace HangmanGame
 
             int currentLettersRight = 0;
             
-            while(amountOfTimesWrong != 6 && currentLettersRight != lengthOfWordToGuess)
+            while(amountOfTimeWrong != 6 && currentLettersRight != lengthOfWordToGuess)
             {
                 Console.Write("\n Letters guessed so far: ");
                 foreach(char letter in currentLettersGuessed)
@@ -136,7 +136,7 @@ namespace HangmanGame
                 // Check if letter has already been guessed
                 if(currentLettersGuessed.Contains(letterGuessed))
                 {
-                    Console.Write("\r\nYou have already guessed this letter.");
+                    Console.Write("\r\n You have already guessed this letter.");
                     printHangman(amountOfTimeWrong);
                     currentLettersRight = printWord(currentLettersGuessed, randomWord);
                     printLines(randomWord);
@@ -172,6 +172,8 @@ namespace HangmanGame
                     }
                 }
             }
+            Console.WriteLine("\r\nGame is over! Thank you for playing. ;)");
+            Console.ReadKey();
         }
     }
 }
