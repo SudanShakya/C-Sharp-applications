@@ -82,8 +82,8 @@ public class cardHolder
         {
             Console.WriteLine("How much money would you like to deposit? ");
             double deposit = Double.Parse(Console.ReadLine());
-            currentUser.setBalance(deposit);
-            Console.WriteLine("Thank you. Your new balance is: " + currentUser.getBalance);
+            currentUser.setBalance(currentUser.getBalance() + deposit);
+            Console.WriteLine("Thank you. Your new balance is: " + currentUser.getBalance());
         }
 
         void withdraw(cardHolder currentUser)
@@ -92,7 +92,7 @@ public class cardHolder
             double withdrawal = Double.Parse(Console.ReadLine());
 
             //To check if the user has enough money
-            if(currentUser.getBalance() > withdrawal) 
+            if(currentUser.getBalance() < withdrawal) 
             {
                 Console.WriteLine("Insufficient balance...");
             }
@@ -109,11 +109,11 @@ public class cardHolder
         }
 
         List<cardHolder> cardHolders = new List<cardHolder>();
-        cardHolders.Add(new cardHolder("1234", 1111, "Ram", "Yadav", 22340));
-        cardHolders.Add(new cardHolder("5678", 2222, "Hari", "Rai", 223));
-        cardHolders.Add(new cardHolder("1928", 3333, "Sita", "Tamang", 9485));
-        cardHolders.Add(new cardHolder("8765", 4444, "Gita", "Magar", 88));
-        cardHolders.Add(new cardHolder("4321", 5555, "Durga", "Limbu", 98));
+        cardHolders.Add(new cardHolder("1234", 1111, "Ram", "Yadav", 20));
+        cardHolders.Add(new cardHolder("5678", 2222, "Hari", "Rai", 40));
+        cardHolders.Add(new cardHolder("1928", 3333, "Sita", "Tamang", 10));
+        cardHolders.Add(new cardHolder("8765", 4444, "Gita", "Magar", 50));
+        cardHolders.Add(new cardHolder("4321", 5555, "Durga", "Limbu", 30));
 
         //Prompt user
         Console.WriteLine("Welcome To our ATM");
