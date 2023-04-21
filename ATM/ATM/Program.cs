@@ -75,7 +75,7 @@ public class cardHolder
             Console.WriteLine("1. Deposit");
             Console.WriteLine("2. Withdraw");
             Console.WriteLine("3. Show Balance");
-            Console.WriteLine("4. Exit")
+            Console.WriteLine("4. Exit");
         }
 
         void deposit(cardHolder currentUser)
@@ -106,6 +106,45 @@ public class cardHolder
         void balance(cardHolder currentUser)
         {
             Console.WriteLine("Current balance: " + currentUser.getBalance());
+        }
+
+        List<cardHolder> cardHolders = new List<cardHolder>();
+        cardHolders.Add(new cardHolder("1234", 1111, "Ram", "Yadav", 22340));
+        cardHolders.Add(new cardHolder("5678", 2222, "Hari", "Rai", 223));
+        cardHolders.Add(new cardHolder("1928", 3333, "Sita", "Tamang", 9485));
+        cardHolders.Add(new cardHolder("8765", 4444, "Gita", "Magar", 88));
+        cardHolders.Add(new cardHolder("4321", 5555, "Durga", "Limbu", 98));
+
+        //Prompt user
+        Console.WriteLine("Welcome To our ATM");
+        Console.WriteLine("Please insert your ATM card: ");
+        String atmCardNum = "";
+        cardHolder currentUser;
+
+        while(true)
+        {
+            try
+            {
+                atmCardNum= Console.ReadLine();
+                //check against our db
+                currentUser = cardHolders.FirstOrDefault(a => a.cardNumber == atmCardNum);
+                if(currentUser != null) { break; }
+                else { Console.WriteLine("Card not recognized. Please try again."); }
+            }
+            catch { Console.WriteLine("Card not recognized. Please try again."); }
+        }
+
+        Console.WriteLine("Please enter your pin: ");
+        int userPin = 0;
+        while (true)
+        {
+            try
+            {
+                userPin = int.Parse(Console.ReadLine());
+                if (currentUser.getPin() == userPin) { break; }
+                else { Console.WriteLine("Incorrect pin. Please try again."); }
+            }
+            catch { Console.WriteLine("Incorrect pin. Please try again."); }
         }
     }
 }
