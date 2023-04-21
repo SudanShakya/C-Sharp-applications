@@ -117,7 +117,7 @@ public class cardHolder
 
         //Prompt user
         Console.WriteLine("Welcome To our ATM");
-        Console.WriteLine("Please insert your ATM card: ");
+        Console.WriteLine("Please insert your ATM card number: ");
         String atmCardNum = "";
         cardHolder currentUser;
 
@@ -146,5 +146,25 @@ public class cardHolder
             }
             catch { Console.WriteLine("Incorrect pin. Please try again."); }
         }
+
+        Console.WriteLine("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName());
+        int option = 0;
+
+        do
+        {
+            printOptions();
+            try
+            {
+                option = int.Parse(Console.ReadLine());
+            }
+            catch { }
+            if(option == 1) { deposit(currentUser); }
+            else if(option == 2) { withdraw(currentUser); }
+            else if(option == 3) { balance(currentUser); }
+            else if(option == 4) { break; }
+            else { option = 0; }
+        } 
+        while (option != 4);
+        Console.WriteLine("Thank you! Have a great day.");
     }
 }
